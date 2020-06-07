@@ -4,44 +4,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.wallissoftware</groupId>
   <artifactId>WikiParser</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <properties>
-    <java.version>13</java.version>
-  </properties>
+  <parent>
+    <artifactId>byos-common</artifactId>
+    <groupId>com.wallissoftware</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
   <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
-      <version>1.18.12</version>
-    </dependency>
     <dependency>
       <groupId>com.wallissoftware</groupId>
       <artifactId>byos-common</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
-    <dependency>
-      <groupId>org.jetbrains</groupId>
-      <artifactId>annotations</artifactId>
-      <version>16.0.3</version>
-      <scope>compile</scope>
-    </dependency>
-
-
-
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
+          <mainClass>com.wallissoftware.wikiparser.WikiParser</mainClass>
         </configuration>
       </plugin>
     </plugins>
   </build>
+
 </project>
